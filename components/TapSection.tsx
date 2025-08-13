@@ -76,224 +76,222 @@ export const TapSection = ({ user, onTap, onOpenRank }: TapSectionProps) => {
   )
 
   return (
-    <div className="pb-4">
-      {/* Compact Header */}
-      <div className="flex items-center gap-1 sm:gap-2 mb-3 sm:mb-4">
-        {/* Rank Button */}
+    <div className="flex flex-col h-full min-h-screen pb-0">
+      {/* Top Stats Section - Larger */}
+      <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8 px-2">
+        {/* Rank Button - Larger */}
         <button
           onClick={onOpenRank}
-          className="relative bg-gradient-to-br from-yellow-400/10 to-orange-400/10 border border-yellow-400/30 rounded-lg p-1.5 sm:p-2 hover:border-yellow-400/50 transition-all duration-300 hover:scale-105 shadow-md hover:shadow-yellow-400/30 group overflow-hidden flex flex-col items-center justify-center min-w-[40px] sm:min-w-[50px]"
+          className="relative bg-gradient-to-br from-yellow-400/15 to-orange-400/15 border-2 border-yellow-400/40 rounded-xl p-3 sm:p-4 hover:border-yellow-400/60 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-yellow-400/40 group overflow-hidden flex flex-col items-center justify-center min-w-[70px] sm:min-w-[80px] md:min-w-[90px]"
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-yellow-300/10 via-orange-300/10 to-yellow-300/10 animate-pulse-slow" />
-          <div className="absolute top-0.5 right-0.5 w-1 h-1 sm:w-1.5 sm:h-1.5 bg-yellow-300 rounded-full animate-ping-slow opacity-50" />
+          <div className="absolute inset-0 bg-gradient-to-r from-yellow-300/15 via-orange-300/15 to-yellow-300/15 animate-pulse" />
+          <div className="absolute top-1 right-1 w-2 h-2 sm:w-2.5 sm:h-2.5 bg-yellow-300 rounded-full animate-ping opacity-60" />
 
           <div className="relative text-center">
-            <div className="text-sm sm:text-base mb-0.5 animate-bounce-slow">{icon}</div>
-            <div className="text-xs text-yellow-300 font-bold bg-black/20 px-1 sm:px-1.5 py-0.5 rounded-full">#{rank}</div>
+            <div className="text-xl sm:text-2xl md:text-3xl mb-1 animate-bounce">{icon}</div>
+            <div className="text-sm sm:text-base text-yellow-300 font-bold bg-black/30 px-2 sm:px-3 py-1 rounded-full">
+              #{rank}
+            </div>
           </div>
         </button>
 
-        {/* Enhanced Combo & Streak */}
-        <div className="flex-1 grid grid-cols-2 gap-1 sm:gap-2">
+        {/* Combo & Streak - Larger */}
+        <div className="flex-1 grid grid-cols-2 gap-3 sm:gap-4">
           <div
-            className={`relative bg-black/20 border rounded-lg p-1.5 sm:p-2 text-center overflow-hidden ${
+            className={`relative bg-black/25 border-2 rounded-xl p-3 sm:p-4 text-center overflow-hidden transition-all duration-300 ${
               user.combo >= 10
-                ? "shadow-md shadow-orange-400/20 animate-background-pulse-slow border-orange-300"
-                : "border-gray-600/20"
+                ? "shadow-lg shadow-orange-400/30 animate-background-pulse border-orange-400/50"
+                : "border-gray-600/30"
             }`}
           >
             {user.combo >= 10 && (
-              <div className="absolute inset-0 bg-gradient-to-t from-red-400/10 via-orange-400/10 to-yellow-400/10 animate-pulse-slow" />
+              <div className="absolute inset-0 bg-gradient-to-t from-red-400/15 via-orange-400/15 to-yellow-400/15 animate-pulse" />
             )}
 
             <div className="relative">
-              <div className="text-sm sm:text-base mb-0.5">🔥</div>
-              <div className="text-orange-300 font-bold text-xs sm:text-sm">{user.combo}</div>
-              <div className="text-xs text-gray-200 font-semibold uppercase tracking-wide">COMBO</div>
+              <div className="text-2xl sm:text-3xl md:text-4xl mb-2">🔥</div>
+              <div className="text-orange-300 font-bold text-lg sm:text-xl md:text-2xl">{user.combo}</div>
+              <div className="text-sm sm:text-base text-gray-200 font-semibold uppercase tracking-wide">COMBO</div>
             </div>
 
             {user.combo >= 10 && (
-              <>
-                <div className="absolute top-1 right-1 w-1 h-1 bg-orange-300 rounded-full animate-ping-slow" />
-              </>
+              <div className="absolute top-2 right-2 w-2 h-2 bg-orange-300 rounded-full animate-ping" />
             )}
           </div>
 
           <div
-            className={`relative bg-black/20 border rounded-lg p-1.5 sm:p-2 text-center overflow-hidden ${
+            className={`relative bg-black/25 border-2 rounded-xl p-3 sm:p-4 text-center overflow-hidden transition-all duration-300 ${
               user.streak > 0
-                ? "shadow-md shadow-blue-400/20 animate-background-pulse-slow border-blue-300"
-                : "border-gray-600/20"
+                ? "shadow-lg shadow-blue-400/30 animate-background-pulse border-blue-400/50"
+                : "border-gray-600/30"
             }`}
           >
-            <div className="absolute inset-0 bg-gradient-to-t from-blue-400/5 via-purple-400/5 to-blue-400/5 animate-pulse-slow" />
+            <div className="absolute inset-0 bg-gradient-to-t from-blue-400/10 via-purple-400/10 to-blue-400/10 animate-pulse" />
 
             <div className="relative">
-              <div className="text-sm sm:text-base mb-0.5">⚡</div>
-              <div className="text-blue-300 font-bold text-xs sm:text-sm">{user.streak}</div>
-              <div className="text-xs text-gray-200 font-semibold uppercase tracking-wide">STREAK</div>
+              <div className="text-2xl sm:text-3xl md:text-4xl mb-2">⚡</div>
+              <div className="text-blue-300 font-bold text-lg sm:text-xl md:text-2xl">{user.streak}</div>
+              <div className="text-sm sm:text-base text-gray-200 font-semibold uppercase tracking-wide">STREAK</div>
             </div>
 
-            <div className="absolute top-1 left-1 w-1 h-1 bg-blue-300 rounded-full animate-ping-slow opacity-40" />
+            <div className="absolute top-2 left-2 w-2 h-2 bg-blue-300 rounded-full animate-ping opacity-50" />
           </div>
         </div>
       </div>
 
-      {/* Enhanced Main Tap Area with Optimized Coin */}
-      <div className="relative mb-4 sm:mb-6 tap-area-container" ref={containerRef}>
-        <div
-          className={`relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] mx-auto cursor-pointer transition-all duration-300 group ${
-            isPressed ? "scale-95 animate-coin-press-slow" : "hover:scale-105"
-          } max-w-[calc(100vw-32px)]`}
-          onClick={handleTap}
-          onTouchStart={(e) => {
-            handleTapStart()
-            handleTap(e)
-          }}
-          onTouchEnd={handleTapEnd}
-          onMouseDown={handleTapStart}
-          onMouseUp={handleTapEnd}
-          onMouseLeave={handleTapEnd}
-        >
-          {/* Optimized Aura Layers */}
-          <div className="absolute inset-0 bg-gradient-to-r from-teal-400/10 via-cyan-400/10 to-indigo-400/10 rounded-full opacity-10 animate-pulse-slow" />
-          <div className="absolute inset-1 sm:inset-2 bg-gradient-to-r from-teal-400/15 via-cyan-400/15 to-indigo-400/15 rounded-full opacity-15 animate-ping-slow" />
-          <div className="absolute inset-2 sm:inset-4 bg-gradient-to-r from-teal-300/20 via-cyan-300/20 to-indigo-300/20 rounded-full opacity-20 animate-pulse-slow" />
+      {/* Main Tap Area - Much Larger */}
+      <div className="flex-1 flex flex-col items-center justify-center px-4 mb-8">
+        <div className="relative mb-8" ref={containerRef}>
+          <div
+            className={`relative w-80 h-80 sm:w-96 sm:h-96 md:w-[28rem] md:h-[28rem] lg:w-[32rem] lg:h-[32rem] xl:w-[36rem] xl:h-[36rem] mx-auto cursor-pointer transition-all duration-300 group ${
+              isPressed ? "scale-95" : "hover:scale-105"
+            }`}
+            onClick={handleTap}
+            onTouchStart={(e) => {
+              handleTapStart()
+              handleTap(e)
+            }}
+            onTouchEnd={handleTapEnd}
+            onMouseDown={handleTapStart}
+            onMouseUp={handleTapEnd}
+            onMouseLeave={handleTapEnd}
+          >
+            {/* Enhanced Aura Layers */}
+            <div className="absolute inset-0 bg-gradient-to-r from-teal-400/15 via-cyan-400/15 to-indigo-400/15 rounded-full opacity-20 animate-pulse" />
+            <div className="absolute inset-2 bg-gradient-to-r from-teal-400/20 via-cyan-400/20 to-indigo-400/20 rounded-full opacity-25 animate-ping" />
+            <div className="absolute inset-4 bg-gradient-to-r from-teal-300/25 via-cyan-300/25 to-indigo-300/25 rounded-full opacity-30 animate-pulse" />
 
-          {/* Main Coin Container with Smooth Animation */}
-          <div className="relative z-10 w-full h-full bg-gradient-to-br from-teal-400/20 to-cyan-400/20 rounded-full border-4 border-teal-400/40 shadow-xl shadow-teal-400/40 flex items-center justify-center overflow-hidden backdrop-blur-sm">
-            {/* Inner Glow */}
-            <div className="absolute inset-4 bg-gradient-to-br from-teal-300/10 to-cyan-300/10 rounded-full animate-pulse-slow" />
+            {/* Main Coin Container */}
+            <div className="relative z-10 w-full h-full bg-gradient-to-br from-teal-400/25 to-cyan-400/25 rounded-full border-4 sm:border-6 border-teal-400/50 shadow-2xl shadow-teal-400/50 flex items-center justify-center overflow-hidden backdrop-blur-sm">
+              {/* Inner Glow */}
+              <div className="absolute inset-6 bg-gradient-to-br from-teal-300/15 to-cyan-300/15 rounded-full animate-pulse" />
 
-            {/* Optimized Coin Image */}
-            <div className={`relative z-20 transition-transform duration-300 ${isPressed ? "scale-90" : ""}`}>
-              <Image
-                src="/images/uc-coin.png"
-                alt="UC Coin"
-                width={200}
-                height={200}
-                className="w-70 h-70 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 object-contain drop-shadow-xl"
-                priority
-                quality={100}
-                style={{
-                  filter: "drop-shadow(0 0 15px rgba(34, 197, 94, 0.5))",
-                }}
+              {/* Coin Image - Much Larger */}
+              <div className={`relative z-20 transition-transform duration-300 ${isPressed ? "scale-90" : ""}`}>
+                <Image
+                  src="/images/uc-coin.png"
+                  alt="UC Coin"
+                  width={400}
+                  height={400}
+                  className="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] xl:w-[32rem] xl:h-[32rem] object-contain drop-shadow-2xl"
+                  priority
+                  quality={100}
+                  style={{
+                    filter: "drop-shadow(0 0 25px rgba(34, 197, 94, 0.6))",
+                  }}
+                />
+              </div>
+
+              {/* Tap Ripple Effect */}
+              <div
+                className={`absolute inset-0 rounded-full border-4 border-white/30 transition-all duration-300 ${
+                  isPressed ? "scale-100 opacity-0" : "scale-0 opacity-80"
+                }`}
               />
             </div>
 
-            {/* Tap Ripple Effect */}
-            <div
-              className={`absolute inset-0 rounded-full border-4 border-white/20 transition-all duration-300 ${
-                isPressed ? "scale-100 opacity-0" : "scale-0 opacity-80"
-              }`}
-            />
+            {/* Tap Effects */}
+            {tapEffects.map((effect) => (
+              <div
+                key={effect.id}
+                className={`absolute pointer-events-none z-30 font-bold select-none ${
+                  effect.type === "critical"
+                    ? "text-red-300 text-xl sm:text-2xl drop-shadow-lg animate-bounce-up-critical"
+                    : effect.type === "jackpot"
+                      ? "text-green-300 text-2xl sm:text-3xl drop-shadow-xl animate-bounce-up-jackpot"
+                      : "text-orange-300 text-lg sm:text-xl drop-shadow-md animate-bounce-up"
+                }`}
+                style={{
+                  left: effect.x,
+                  top: effect.y,
+                  transform: "translate(-50%, -50%)",
+                  textShadow: "0 0 12px currentColor",
+                }}
+              >
+                +{gameLogic.formatNumber(effect.amount)}
+                {effect.type === "jackpot" && " 🎰"}
+                {effect.type === "critical" && " 🔥"}
+              </div>
+            ))}
+
+            {/* Floating Particles */}
+            {Array.from({ length: 4 }).map((_, i) => (
+              <div
+                key={i}
+                className="absolute w-3 h-3 sm:w-4 sm:h-4 bg-gradient-to-r from-teal-400 to-cyan-400 rounded-full animate-ping opacity-40"
+                style={{
+                  left: `${15 + i * 20}%`,
+                  top: `${15 + i * 20}%`,
+                  animationDelay: `${i * 0.8}s`,
+                  animationDuration: `${3 + i * 0.4}s`,
+                }}
+              />
+            ))}
+
+            {/* Orbital Particles */}
+            {Array.from({ length: 2 }).map((_, i) => (
+              <div
+                key={`orbit-${i}`}
+                className="absolute w-4 h-4 sm:w-5 sm:h-5 bg-gradient-to-r from-yellow-300 to-orange-300 rounded-full opacity-60 animate-orbit"
+                style={{
+                  left: "50%",
+                  top: "50%",
+                  transform: "translate(-50%, -50%)",
+                  animationDelay: `${i * 2}s`,
+                }}
+              />
+            ))}
           </div>
-
-          {/* Enhanced Tap Effects */}
-          {tapEffects.map((effect) => (
-            <div
-              key={effect.id}
-              className={`absolute pointer-events-none z-30 font-bold select-none ${
-                effect.type === "critical"
-                  ? "text-red-300 text-base sm:text-lg drop-shadow-md animate-bounce-up-slow"
-                  : effect.type === "jackpot"
-                    ? "text-green-300 text-lg sm:text-xl drop-shadow-lg animate-bounce-up-slow"
-                    : "text-orange-300 text-sm sm:text-base drop-shadow-sm animate-pop-up-slow"
-              }`}
-              style={{
-                left: effect.x,
-                top: effect.y,
-                transform: "translate(-50%, -50%)",
-                textShadow: "0 0 8px currentColor",
-              }}
-            >
-              +{gameLogic.formatNumber(effect.amount)}
-              {effect.type === "jackpot" && " 🎰"}
-              {effect.type === "critical" && " 🔥"}
-            </div>
-          ))}
-
-          {/* Optimized Floating Particles */}
-          {Array.from({ length: 3 }).map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gradient-to-r from-teal-400 to-cyan-400 rounded-full animate-ping-slow opacity-30"
-              style={{
-                left: `${20 + i * 15}%`,
-                top: `${20 + i * 15}%`,
-                animationDelay: `${i * 0.7}s`,
-                animationDuration: `${2.5 + i * 0.3}s`,
-              }}
-            />
-          ))}
-
-          {/* Optimized Orbital Particles */}
-          {Array.from({ length: 1 }).map((_, i) => (
-            <div
-              key={`orbit-${i}`}
-              className="absolute w-2 h-2 sm:w-3 sm:h-3 bg-gradient-to-r from-yellow-300 to-orange-300 rounded-full opacity-50 animate-orbit-slow"
-              style={{
-                left: "50%",
-                top: "50%",
-                transform: "translate(-50%, -50%)",
-                animationDelay: `${i * 1.5}s`,
-              }}
-            />
-          ))}
         </div>
 
-            {/* Enhanced Tap Instruction */}
-        <div className="text-center mt-1 sm:mt-2">
-          <div className="bg-gradient-to-r from-black/30 to-gray-800/30 backdrop-blur-md border border-teal-400/40 rounded-xl px-2 sm:px-3 py-1 sm:py-1.5 inline-block shadow-md shadow-teal-400/15">
-            <p className="text-teal-300 font-bold text-xs flex items-center gap-1 sm:gap-1.5">
-              <span className="animate-bounce-slow">👆</span>
+        {/* Tap Instruction - Centered below coin */}
+        <div className="text-center">
+          <div className="bg-gradient-to-r from-black/40 to-gray-800/40 backdrop-blur-md border-2 border-teal-400/50 rounded-2xl px-6 sm:px-8 py-3 sm:py-4 inline-block shadow-lg shadow-teal-400/20">
+            <p className="text-teal-300 font-bold text-lg sm:text-xl md:text-2xl flex items-center gap-3 sm:gap-4">
+              <span className="animate-bounce text-2xl sm:text-3xl">👆</span>
               <span>Tap to Mine UC!</span>
-              <span className="animate-pulse-slow">💎</span>
+              <span className="animate-pulse text-2xl sm:text-3xl">💎</span>
             </p>
           </div>
         </div>
       </div>
 
-      {/* Enhanced Energy System */}
-      <div className="bg-gradient-to-r from-black/30 to-gray-800/30 backdrop-blur-md border border-teal-400/30 rounded-xl p-2 sm:p-3 shadow-md shadow-teal-400/15 mb-16 sm:mb-20 md:mb-24">
-        <div className="flex items-center justify-between mb-2 sm:mb-3">
-          <div className="flex items-center gap-1 sm:gap-3">
-            <div className="relative w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-yellow-300 to-orange-300 rounded-lg flex items-center justify-center text-lg sm:text-xl shadow-md overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-t from-orange-300/20 to-yellow-300/20 animate-pulse-slow" />
-              <span className="relative animate-pulse-slow">⚡</span>
+      {/* Energy System - Fixed at bottom with proper spacing */}
+      <div className="bg-gradient-to-r from-black/40 to-gray-800/40 backdrop-blur-md border-2 border-teal-400/40 rounded-2xl p-4 sm:p-5 shadow-lg shadow-teal-400/20 mx-2 mb-28 sm:mb-32 md:mb-36">
+        <div className="flex items-center justify-between mb-4 sm:mb-5">
+          <div className="flex items-center gap-3 sm:gap-4">
+            <div className="relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-br from-yellow-300 to-orange-300 rounded-xl flex items-center justify-center text-2xl sm:text-3xl shadow-lg overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-t from-orange-300/25 to-yellow-300/25 animate-pulse" />
+              <span className="relative animate-pulse">⚡</span>
             </div>
             <div>
-              <p className="text-white font-bold text-base sm:text-lg font-display">
+              <p className="text-white font-bold text-xl sm:text-2xl md:text-3xl font-display">
                 {user.tapsLeft} / {user.energyLimit}
               </p>
-              <p className="text-sm text-gray-200 font-semibold uppercase tracking-wide">Energy</p>
+              <p className="text-base sm:text-lg text-gray-200 font-semibold uppercase tracking-wide">Energy</p>
             </div>
           </div>
           <div className="text-right">
-            <div className="text-base sm:text-lg font-bold text-yellow-300 drop-shadow-md font-display">
+            <div className="text-xl sm:text-2xl md:text-3xl font-bold text-yellow-300 drop-shadow-lg font-display">
               {Math.round(energyPercentage)}%
             </div>
-            <div className="text-sm text-gray-300">Charged</div>
+            <div className="text-base sm:text-lg text-gray-300">Charged</div>
           </div>
         </div>
 
         {/* Enhanced Progress Bar */}
-        <div className="relative w-full h-2 sm:h-3 bg-gray-700 rounded-full overflow-hidden border border-gray-600/30 shadow-inner">
+        <div className="relative w-full h-4 sm:h-5 md:h-6 bg-gray-700 rounded-full overflow-hidden border-2 border-gray-600/40 shadow-inner">
           <div
             className="h-full bg-gradient-to-r from-yellow-300 via-orange-300 to-red-300 rounded-full transition-all duration-500 relative overflow-hidden"
             style={{ width: `${energyPercentage}%` }}
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer-slow" />
-            <div className="absolute inset-0 bg-white/10 animate-pulse-slow" />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent animate-shimmer" />
+            <div className="absolute inset-0 bg-white/15 animate-pulse" />
           </div>
 
           {energyPercentage > 50 && (
-            <>
-              <div className="absolute top-0.5 left-1/4 w-1 h-1 sm:w-1.5 sm:h-1.5 bg-yellow-300 rounded-full animate-ping-slow" />
-            </>
+            <div className="absolute top-1 left-1/4 w-2 h-2 sm:w-3 sm:h-3 bg-yellow-300 rounded-full animate-ping" />
           )}
-
-       
         </div>
       </div>
     </div>
